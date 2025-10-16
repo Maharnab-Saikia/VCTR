@@ -31,13 +31,13 @@ class BaseOptions():
         parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
 
         # Model parameters
-        parser.add_argument('--model', type=str, default='attr', help='chooses which model to use')
+        parser.add_argument('--model', type=str, default='vctr', help='chooses which model to use')
         parser.add_argument('--input_nc', type=int, default=1, help='# of input image channels: 3 for RGB and 1 for grayscale')
         parser.add_argument('--output_nc', type=int, default=1, help='# of output image channels: 3 for RGB and 1 for grayscale')
         parser.add_argument('--ngf', type=int, default=64, help='# of gen filters in the last conv layer')
         parser.add_argument('--ndf', type=int, default=64, help='# of discrim filters in the first conv layer')
         parser.add_argument('--netD', type=str, default='basic', help='specify discriminator architecture [basic | wav | wav_1d | n_layers | pixel]. The basic model is a 70x70 PatchGAN. n_layers allows you to specify the layers in the discriminator')
-        parser.add_argument('--netG', type=str, default='attr_resnet_9blocks', help='specify generator architecture [wav | wav_1d | attr_resnet_9blocks | resnet_9blocks | resnet_6blocks | unet_256 | unet_128]')
+        parser.add_argument('--netG', type=str, default='vctr_resnet_9blocks', help='specify generator architecture [wav | wav_1d | vctr_resnet_9blocks | resnet_9blocks | resnet_6blocks | unet_256 | unet_128]')
         parser.add_argument('--n_layers_D', type=int, default=3, help='only used if netD==n_layers')
         parser.add_argument('--normG', type=str, default='instance', help='instance normalization or batch normalization [instance1d | instance | batch | none]')
         parser.add_argument('--normD', type=str, default='instance', help='instance normalization or batch normalization [instance1d | instance | batch | none]')
@@ -72,7 +72,7 @@ class BaseOptions():
         parser.add_argument("--config", default=None, type=str, help="yaml format configuration file. if not explicitly provided, it will be searched in the checkpoint directory. (default=None)")
         parser.add_argument("--stats", default='./checkpoints/vocoder/stats.h5', type=str, help="statistics file.")
 
-        # ATTR configs
+        # VCTR configs
         parser.add_argument('--embed_dim', type=int, default=256, help='dimension of HPB blocks')
         parser.add_argument('--head_dim', type=int, default=32, help='dimension per attention head')
         parser.add_argument('--num_heads', type=int, default=6, help='number of attention heads')

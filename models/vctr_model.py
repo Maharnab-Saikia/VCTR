@@ -13,9 +13,9 @@ class CVCModel(BaseModel):
     """
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
-        """  Configures options specific for ATTR model
+        """  Configures options specific for VCTR model
         """
-        parser.add_argument('--ATTR_mode', type=str, default="ATTR", choices='(ATTR, attr)')
+        parser.add_argument('--VCTR_mode', type=str, default="VCTR", choices='(VCTR, vctr)')
 
         parser.add_argument('--lambda_GAN', type=float, default=1.0, help='weight for GAN loss：GAN(G(X))')
         parser.add_argument('--lambda_NCE', type=float, default=1.0, help='weight for NCE loss: NCE(G(X), X)')
@@ -33,10 +33,10 @@ class CVCModel(BaseModel):
         opt, _ = parser.parse_known_args()
 
         # Set default parameters for CVC
-        if opt.ATTR_mode.lower() == "attr":
+        if opt.VCTR_mode.lower() == "vctr":
             parser.set_defaults(nce_idt=True, lambda_NCE=1.0)
         else:
-            raise ValueError(opt.ATTR_mode)
+            raise ValueError(opt.VCTR_mode)
 
         return parser
 

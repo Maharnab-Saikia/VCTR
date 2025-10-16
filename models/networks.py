@@ -303,8 +303,8 @@ def define_G(input_nc, output_nc, ngf, netG, norm='batch', use_dropout=False, in
     net = None
     norm_layer = get_norm_layer(norm_type=norm)
 
-    if netG == 'attr_resnet_9blocks':
-        net = ATTR(input_nc=input_nc, output_nc=output_nc, ngf=ngf, num_blocks=9, opt=opt)
+    if netG == 'vctr_resnet_9blocks':
+        net = VCTR(input_nc=input_nc, output_nc=output_nc, ngf=ngf, num_blocks=9, opt=opt)
     elif netG == 'resnet_9blocks':
         net = ResnetGenerator(input_nc, output_nc, ngf, norm_layer=norm_layer, use_dropout=use_dropout, no_antialias=no_antialias, no_antialias_up=no_antialias_up, n_blocks=9, opt=opt)
     elif netG == 'wav_1d':
@@ -1140,9 +1140,9 @@ class DPSA(nn.Module):
         return self.to_out(out)
 
 
-class ATTR(nn.Module):
+class VCTR(nn.Module):
     def __init__(self, input_nc=3, output_nc=3, ngf=64, num_blocks=9, opt=None):
-        super(ATTR, self).__init__()
+        super(VCTR, self).__init__()
 
         model = [
             nn.ReflectionPad2d(3),
