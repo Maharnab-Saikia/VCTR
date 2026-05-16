@@ -5,7 +5,7 @@ This repository provides the official implementation of the VCTR model for non-p
 
 ### [Paper](https://arxiv.org/abs/2510.12964)
 
-VCTR is the result of an independent research project focused on non-parallel voice conversion for conversational AI systems. Although initially submitted to IWSLT-2025 and not accepted, I believe the model and findings may offer useful insights to the community.
+VCTR is the result of an independent research project focused on non-parallel voice conversion for conversational AI systems.
 
 <p align="center">
   <img src='figs/VCTR.png' width=800>
